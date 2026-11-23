@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product Messaging Studio</title>
+<meta name="description" content="Product Messaging Studio: turn trial results, white papers, competitive notes and internal updates into key messages, objection handling and battlecards for every role. Portfolio demo by Warisha Khan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFBF8}
+a{color:#5B2A86}a:hover{color:#3E1A5E}
+.root{font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:#231B2E;background:#FFFBF8;min-height:100%}
+.ic{width:20px;height:20px;flex:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.nav{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;padding:22px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px}
+.brand-m{width:38px;height:38px;border-radius:12px;background:#5B2A86;color:#fff;display:grid;place-items:center}
+.links{display:flex;gap:28px;margin-left:auto;font-weight:600;font-size:15px}
+.links a{color:#4A3F57;text-decoration:none}.links a:hover{color:#5B2A86}
+.btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:700;font-size:16px;border-radius:999px;padding:13px 22px;border:2px solid transparent;cursor:pointer;text-decoration:none;min-height:48px;box-sizing:border-box}
+.btn.primary{background:#5B2A86;color:#fff}.btn.primary:hover{background:#4A2070;color:#fff}
+.btn.ghost{background:#fff;color:#5B2A86;border-color:#D9C8F0}.btn.ghost:hover{border-color:#5B2A86}
+.btn.sm{font-size:14px;padding:10px 18px;min-height:44px}
+.hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:48px;align-items:center;padding:28px 0 64px}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;background:#FFE1D6;color:#9A3412;font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px}
+.hero h1{font-size:clamp(40px,5vw,58px);line-height:1.06;letter-spacing:-0.02em;margin:20px 0 16px}
+.lead{font-size:19px;line-height:1.6;color:#4A3F57;margin:0 0 28px;max-width:560px}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.ticks{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:28px;font-weight:600;font-size:14px;color:#4A3F57}
+.ticks span{display:inline-flex;gap:8px;align-items:center}.ticks .ic{color:#2C9C86}
+.hero-art{width:100%;height:auto;display:block}
+.sec{padding:56px 0;border-top:1px solid #F0E6EE}
+.step{display:inline-flex;align-items:center;gap:10px;font-weight:800;color:#FF7A59;font-size:14px;letter-spacing:.06em}
+.step b{width:28px;height:28px;border-radius:50%;background:#FF7A59;color:#fff;display:grid;place-items:center;font-size:14px}
+.sec h2{font-size:34px;margin:10px 0 8px;letter-spacing:-0.01em}
+.sub{font-size:17px;color:#5F5470;margin:0 0 28px;max-width:640px;line-height:1.55}
+.types{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:18px}
+.type{font:inherit;text-align:left;background:#fff;border:2px solid #EFE4F5;border-radius:24px;padding:14px;cursor:pointer;display:flex;flex-direction:column;gap:10px;color:#231B2E}
+.type:hover{border-color:#C9B7E6}
+.type[aria-pressed="true"]{border-color:#5B2A86;box-shadow:0 10px 28px rgba(91,42,134,.16)}
+.card-art{width:100%;height:auto;display:block}
+.type b{font-size:18px;padding:0 6px}.type span{font-size:14px;color:#5F5470;padding:0 6px 6px}
+.srcbox{background:#fff;border:2px solid #EFE4F5;border-radius:24px;padding:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px}
+.file{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.file-ic{width:48px;height:48px;border-radius:14px;background:#F3ECFA;color:#5B2A86;display:grid;place-items:center}
+.file b{display:block}.file small{color:#5F5470;font-size:14px}
+.excerpt{margin:0;line-height:1.65;color:#4A3F57;font-size:16px;background:#FFFBF8;border-radius:16px;padding:16px}
+.lab{font-weight:700;font-size:14px;margin:0 0 10px}
+.auds{display:flex;flex-wrap:wrap;gap:8px}
+.aud{font:inherit;font-weight:600;font-size:14px;border:2px solid #EFE4F5;background:#fff;color:#4A3F57;border-radius:999px;padding:10px 16px;cursor:pointer;min-height:44px}
+.aud[aria-pressed="true"]{background:#231B2E;border-color:#231B2E;color:#fff}
+.gen{margin-top:18px}
+.kchip{display:inline-flex;align-items:center;font-size:14px;font-weight:600;color:#9A3412;background:#FFF1EB;border-radius:10px;padding:6px 12px}
+.results{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:24px;align-items:start}
+.leadq{background:#5B2A86;color:#fff;border-radius:24px;padding:28px;font-size:24px;line-height:1.4;font-weight:700;margin:0 0 18px}
+.leadq small{display:block;font-size:13px;font-weight:700;letter-spacing:.08em;color:#E4D6F5;margin-bottom:10px}
+.kms{display:flex;flex-direction:column;gap:14px}
+.km{background:#fff;border:2px solid #EFE4F5;border-radius:20px;padding:18px;display:flex;gap:16px;align-items:flex-start}
+.km-n{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-weight:800;font-size:18px;flex:none;color:#fff}
+.km-n.c0{background:#5B2A86}.km-n.c1{background:#C2410C}.km-n.c2{background:#1F7A6A}
+.km h3{margin:0 0 6px;font-size:18px}.km p{margin:0;color:#5F5470;line-height:1.5;font-size:15px}
+.side{display:flex;flex-direction:column;gap:18px}
+.panel{background:#fff;border:2px solid #EFE4F5;border-radius:24px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.panel h3{margin:0;font-size:18px;display:flex;gap:10px;align-items:center}.panel h3 .ic{color:#FF7A59}
+.bc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.bc div{border-radius:14px;padding:12px;font-size:14px;line-height:1.45}
+.bc .us{background:#EAF6F2;color:#14532D}.bc .them{background:#F6F2F9;color:#4A3F57}
+.bc b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.ask{background:#FFF1EB;border-radius:14px;padding:12px;font-size:14px;line-height:1.45;color:#7C2D12}
+.checks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.chk{background:#FFFBF8;border-radius:14px;padding:12px;text-align:center}
+.chk b{display:block;font-size:24px}.chk span{font-size:12px;color:#5F5470;font-weight:600}
+.chk.ok b{color:#1F7A6A}.chk.bad b{color:#B91C1C}
+.sendto{display:flex;flex-wrap:wrap;gap:8px}
+.st{display:inline-flex;gap:8px;align-items:center;font:inherit;font-weight:600;font-size:14px;background:#F3ECFA;color:#3E1A5E;border:0;border-radius:12px;padding:10px 14px;cursor:pointer;min-height:44px}
+.files{display:flex;flex-direction:column;gap:10px}
+.frow{display:flex;gap:12px;align-items:center;border:2px solid #EFE4F5;border-radius:16px;padding:10px 12px}
+.frow.main{border-color:#C9B7E6;background:#FBF8FE}
+.frow b{display:block;font-size:15px}.frow small{color:#5F5470;font-size:13px}.frow div{flex:1;min-width:0}
+.file-ic.alt{background:#FFF1EB;color:#C2410C}
+.ok-tag{display:inline-flex;gap:4px;align-items:center;font-size:12px;font-weight:700;color:#1F7A6A}.ok-tag .ic{width:16px;height:16px}
+.drop{font:inherit;font-weight:700;font-size:15px;display:flex;gap:10px;align-items:center;justify-content:center;border:2px dashed #C9B7E6;background:#fff;color:#5B2A86;border-radius:16px;padding:14px;cursor:pointer;min-height:48px}
+.exs{display:flex;flex-direction:column;gap:8px}
+.ex{display:flex;flex-direction:column;gap:4px}.ex span{font-size:12px;font-weight:700;color:#5F5470}
+.ex input{font:inherit;font-size:15px;border:2px solid #EFE4F5;border-radius:12px;padding:10px 12px;min-height:44px;box-sizing:border-box;color:#231B2E}
+.ex input:focus{outline:2px solid #5B2A86;outline-offset:1px}
+.fit{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:6px}
+.fit.f0{background:#5B2A86;color:#fff}.fit.f1{background:#FFE1D6;color:#9A3412}.fit.f2{background:#F3ECFA;color:#4A3F57}
+.why{margin:0;line-height:1.55;color:#4A3F57;font-size:15px}
+.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px}
+.role{font:inherit;text-align:left;background:#fff;border:2px solid #EFE4F5;border-radius:22px;padding:18px;cursor:pointer;display:flex;flex-direction:column;gap:10px;color:#231B2E}
+.role:hover{border-color:#C9B7E6}
+.role[aria-pressed="true"]{border-color:#5B2A86;box-shadow:0 10px 28px rgba(91,42,134,.14)}
+.role-h{display:flex;gap:12px;align-items:center}.role-h b{display:block;font-size:17px}.role-h small{color:#5F5470;font-size:13px}
+.role-ic{width:40px;height:40px;border-radius:12px;background:#F3ECFA;color:#5B2A86;display:grid;place-items:center}
+.role-k{font-size:13px;font-weight:600;color:#9A3412;background:#FFF1EB;border-radius:10px;padding:6px 10px;align-self:flex-start}
+.role-l{font-size:16px;line-height:1.5;font-weight:600}
+.role-t{font-size:14px;color:#5F5470;border-top:1px solid #F0E6EE;padding-top:10px}
+.comp-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.strat{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px;margin-bottom:18px}
+.sc{border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.sc p{margin:0;line-height:1.6;font-size:16px}
+.sc-k{display:inline-flex;gap:8px;align-items:center;font-weight:800;font-size:15px}
+.sc.them{background:#F6F2F9}.sc.us{background:#EAF6F2}.sc.us .sc-k{color:#14532D}.sc.win{background:#5B2A86;color:#fff}.sc.win .sc-k{color:#FFD9CC}
+.bc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:16px}
+.plays{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px;line-height:1.5;font-size:15px}
+.plays li::marker{color:#FF7A59;font-weight:800}
+.objs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:16px}
+.objc{background:#fff;border:2px solid #EFE4F5;border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.o-they,.o-you{border-radius:14px;padding:14px}
+.o-they{background:#F6F2F9}.o-you{background:#EAF6F2}
+.o-k{display:inline-flex;gap:8px;align-items:center;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.o-they .o-k{color:#5F5470}.o-you .o-k{color:#14532D}
+.o-they p,.o-you p{margin:6px 0 0;line-height:1.5;font-size:16px}
+.o-they p{font-weight:600}
+.o-proof{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.45;color:#4A3F57}.o-proof .ic{color:#5B2A86;margin-top:1px}
+.evidence{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-bottom:16px}
+.ev{background:#fff;border:2px solid #EFE4F5;border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.ev h3{margin:0;font-size:17px}
+.dstep{display:flex;gap:12px;align-items:flex-start;padding:6px 0}
+.dnum{width:32px;height:32px;border-radius:50%;background:#5B2A86;color:#fff;font-weight:800;font-size:14px;display:grid;place-items:center;flex:none}
+.dstep b{display:block;font-size:15px}.dstep p{margin:2px 0 0;font-size:14px;color:#5F5470;line-height:1.45}
+.ibars{display:flex;gap:28px;align-items:flex-end;height:180px;padding:0 12px;border-bottom:2px solid #D9C8F0}
+.ibar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;height:100%}
+.ibar i{display:block;width:100%;max-width:90px;border-radius:12px 12px 0 0}
+.ibar b{font-size:22px}
+.iblabels{display:flex;gap:28px;padding:0 12px}.iblabels span{flex:1;text-align:center;font-size:13px;color:#5F5470;font-weight:600}
+.delta{display:inline-flex;gap:6px;align-items:center;align-self:flex-start;background:#EAF6F2;color:#14532D;font-weight:700;padding:8px 12px;border-radius:12px;font-size:15px}
+.donut{display:flex;gap:16px;align-items:center}
+.donut svg{width:130px;height:130px;flex:none}
+.donut p{margin:0;line-height:1.5;font-size:15px}
+.big{font-size:42px;font-weight:800;line-height:1}
+.safe{display:flex;gap:12px;align-items:center;background:#EAF6F2;color:#14532D;border-radius:14px;padding:12px;font-size:14px;line-height:1.45}
+.safe b{font-size:28px}
+.lead-with{background:#FFF1EB;border-radius:18px;padding:16px;line-height:1.5;display:flex;gap:10px;align-items:flex-start;color:#4A2A1A}
+.lead-with .ic{color:#C2410C;margin-top:3px}
+.caption{font-size:13px;color:#5F5470;line-height:1.5;margin:12px 0 0}
+.foot{padding:28px 0 48px;color:#5F5470;font-size:13px;line-height:1.6;border-top:1px solid #F0E6EE;margin-top:24px}
+
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.drop:focus-within{outline:3px solid #5B2A86;outline-offset:2px}
+.rm{font:inherit;border:0;background:transparent;color:#5F5470;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;cursor:pointer;flex:none}
+.rm:hover{background:#F3ECFA;color:#231B2E}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#231B2E;color:#fff;font-weight:600;font-size:15px;padding:12px 18px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.2);max-width:calc(100% - 48px);text-align:center;z-index:10}
+.toast:empty{display:none}
+:focus-visible{outline:3px solid #5B2A86;outline-offset:2px}
+.links a,.type,.aud,.role,.st,.btn{-webkit-tap-highlight-color:transparent}
+.links a{display:inline-flex;align-items:center;min-height:44px}
+@media (max-width:640px){.wrap{padding:0 18px}.links{gap:18px;margin-left:0;order:3;width:100%}.nav .btn.sm{margin-left:auto}.hero{gap:28px;padding-bottom:40px}.sec{padding:40px 0}.sec h2{font-size:28px}.leadq{font-size:20px;padding:22px}.srcbox{padding:16px}.bc{grid-template-columns:minmax(0,1fr)}.sc{padding:18px}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl"><div class="root"><div class="wrap">
+<nav class="nav" aria-label="Main"><span class="brand"><span class="brand-m"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"></path><path d="M8 10h8"></path></svg></span>Product Messaging Studio</span>
+<div class="links"><a href="#start">How it works</a><a href="#results">Battlecards</a><a href="#results">Message library</a></div>
+<a class="btn primary sm" href="#start"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"></path><path d="m7 9 5-5 5 5"></path><path d="M5 20h14"></path></svg>New project</a></nav>
+
+<section class="hero">
+<div><span class="eyebrow"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4"></path><path d="M12 17v4"></path><path d="M3 12h4"></path><path d="M17 12h4"></path><path d="m6 6 2.5 2.5"></path><path d="m15.5 15.5 2.5 2.5"></path><path d="m6 18 2.5-2.5"></path><path d="m15.5 8.5 2.5-2.5"></path></svg>For product marketing and sales teams</span>
+<h1>Drop in any content. Get messages your team can use today.</h1>
+<p class="lead">Upload a trial summary, a white paper, competitor notes or an internal update. Product Messaging Studio pulls out the key messages, writes them for each audience and builds the battlecard, with claim checks done.</p>
+<div class="row"><a class="btn primary" href="#start"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"></path><path d="m7 9 5-5 5 5"></path><path d="M5 20h14"></path></svg>Upload content</a><a class="btn ghost" href="#results">See an example</a></div>
+<div class="ticks"><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"></path><path d="m9 12 2 2 4-4"></path></svg>Regulatory claim checks</span><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>Plain-language scoring</span><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"></path><path d="M22 2 11 13"></path></svg>Exports to decks, email and CRM</span></div></div>
+<svg class="hero-art" viewBox="0 0 560 440" role="img" aria-label="Illustration: documents such as a trial report, a white paper and field notes turn into ready-to-use message cards">
+<rect width="560" height="440" rx="36" fill="#F3ECFA"></rect>
+<circle cx="470" cy="70" r="70" fill="#FFE1D6"></circle>
+<circle cx="70" cy="390" r="54" fill="#E4D6F5"></circle>
+<g transform="rotate(-8 140 220)"><rect x="56" y="118" width="170" height="214" rx="14" fill="#FFFFFF" stroke="#D9C8F0" stroke-width="3"></rect><path d="M78 150h120M78 170h96M78 190h110" stroke="#C9B7E6" stroke-width="7" stroke-linecap="round"></path><circle cx="138" cy="262" r="38" fill="#FFE1D6"></circle><path d="M138 262V224a38 38 0 0 1 36 26z" fill="#FF7A59"></path></g>
+<g transform="rotate(4 160 210)"><rect x="84" y="96" width="170" height="214" rx="14" fill="#FFFFFF" stroke="#D9C8F0" stroke-width="3"></rect><rect x="106" y="118" width="60" height="14" rx="7" fill="#5B2A86"></rect><path d="M106 146h110M106 164h84" stroke="#C9B7E6" stroke-width="7" stroke-linecap="round"></path><rect x="110" y="236" width="22" height="50" rx="4" fill="#C9B7E6"></rect><rect x="142" y="214" width="22" height="72" rx="4" fill="#8E5BC7"></rect><rect x="174" y="196" width="22" height="90" rx="4" fill="#5B2A86"></rect><path d="M106 290h110" stroke="#D9C8F0" stroke-width="3"></path></g>
+<path d="M272 214c30-30 56-30 80 0" stroke="#FF7A59" stroke-width="6" fill="none" stroke-linecap="round" stroke-dasharray="2 14"></path>
+<path d="M344 202l12 14-18 6" stroke="#FF7A59" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M312 150l6 14 14 6-14 6-6 14-6-14-14-6 14-6z" fill="#FFB020"></path>
+<rect x="364" y="112" width="160" height="64" rx="14" fill="#FFFFFF"></rect><rect x="378" y="126" width="28" height="28" rx="8" fill="#5B2A86"></rect><path d="M384 140l5 5 9-10" stroke="#FFFFFF" stroke-width="3.5" fill="none" stroke-linecap="round"></path><path d="M416 132h92M416 150h64" stroke="#C9B7E6" stroke-width="7" stroke-linecap="round"></path>
+<rect x="364" y="190" width="160" height="64" rx="14" fill="#FFFFFF"></rect><rect x="378" y="204" width="28" height="28" rx="8" fill="#FF7A59"></rect><path d="M384 218l5 5 9-10" stroke="#FFFFFF" stroke-width="3.5" fill="none" stroke-linecap="round"></path><path d="M416 210h92M416 228h70" stroke="#C9B7E6" stroke-width="7" stroke-linecap="round"></path>
+<rect x="364" y="268" width="160" height="64" rx="14" fill="#FFFFFF"></rect><rect x="378" y="282" width="28" height="28" rx="8" fill="#2C9C86"></rect><path d="M384 296l5 5 9-10" stroke="#FFFFFF" stroke-width="3.5" fill="none" stroke-linecap="round"></path><path d="M416 288h92M416 306h56" stroke="#C9B7E6" stroke-width="7" stroke-linecap="round"></path>
+<rect x="390" y="350" width="108" height="36" rx="18" fill="#5B2A86"></rect><path d="M410 368h68" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"></path>
+</svg>
+</section>
+
+<section class="sec" id="start">
+<span class="step"><b>1</b>START FROM ANYTHING</span>
+<h2>What do you have?</h2>
+<p class="sub">Pick a content type. Each one comes with a sample file so you can see what the studio does with it.</p>
+<div class="types">
+<button type="button" class="type" aria-pressed="{{t.trial}}" onClick="{{pick.trial}}"><svg class="card-art" viewBox="0 0 280 150" aria-hidden="true"><rect width="280" height="150" rx="20" fill="#EAF6F2"></rect><rect x="92" y="18" width="96" height="120" rx="10" fill="#FFFFFF" stroke="#BFE3D7" stroke-width="3"></rect><rect x="118" y="10" width="44" height="18" rx="6" fill="#2C9C86"></rect><rect x="108" y="92" width="16" height="32" rx="3" fill="#BFE3D7"></rect><rect x="132" y="74" width="16" height="50" rx="3" fill="#2C9C86"></rect><rect x="156" y="58" width="16" height="66" rx="3" fill="#1F6F60"></rect><path d="M106 44h64M106 58h40" stroke="#BFE3D7" stroke-width="6" stroke-linecap="round"></path><circle cx="222" cy="44" r="18" fill="#FFE1D6"></circle><path d="M222 34v20M212 44h20" stroke="#FF7A59" stroke-width="5" stroke-linecap="round"></path></svg><b>Clinical trial results</b><span>Study summaries, posters, publications</span></button>
+<button type="button" class="type" aria-pressed="{{t.whitepaper}}" onClick="{{pick.whitepaper}}"><svg class="card-art" viewBox="0 0 280 150" aria-hidden="true"><rect width="280" height="150" rx="20" fill="#F3ECFA"></rect><rect x="76" y="16" width="112" height="124" rx="10" fill="#FFFFFF" stroke="#D9C8F0" stroke-width="3"></rect><path d="M94 38h76M94 54h52" stroke="#C9B7E6" stroke-width="6" stroke-linecap="round"></path><circle cx="132" cy="100" r="26" fill="#E4D6F5"></circle><path d="M132 100V74a26 26 0 0 1 25 33z" fill="#5B2A86"></path><circle cx="214" cy="94" r="24" fill="#FFB020"></circle><path d="M214 82v24M220 87h-9a4 4 0 0 0 0 8h6a4 4 0 0 1 0 8h-9" stroke="#7A4A08" stroke-width="3.5" fill="none" stroke-linecap="round"></path></svg><b>White paper</b><span>Economic models, research reports</span></button>
+<button type="button" class="type" aria-pressed="{{t.competitive}}" onClick="{{pick.competitive}}"><svg class="card-art" viewBox="0 0 280 150" aria-hidden="true"><rect width="280" height="150" rx="20" fill="#FFF1EB"></rect><rect x="66" y="78" width="46" height="56" rx="6" fill="#FFC9B5"></rect><rect x="118" y="50" width="46" height="84" rx="6" fill="#FF7A59"></rect><rect x="170" y="94" width="46" height="40" rx="6" fill="#FFC9B5"></rect><path d="M141 50V20" stroke="#5B2A86" stroke-width="4" stroke-linecap="round"></path><path d="M141 20h26l-6 8 6 8h-26" fill="#5B2A86"></path><text x="89" y="112" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#A6401F">B</text><text x="141" y="100" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">1</text><text x="193" y="122" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#A6401F">A</text></svg><b>Competitive intel</b><span>Field notes, win/loss, pricing sheets</span></button>
+<button type="button" class="type" aria-pressed="{{t.internal}}" onClick="{{pick.internal}}"><svg class="card-art" viewBox="0 0 280 150" aria-hidden="true"><rect width="280" height="150" rx="20" fill="#EEF1FB"></rect><path d="M70 68v20a6 6 0 0 0 6 6h16l44 30V32L92 62H76a6 6 0 0 0-6 6z" fill="#5B6FD6"></path><path d="M150 56c12 8 12 32 0 40M164 44c22 14 22 52 0 66" stroke="#5B6FD6" stroke-width="6" fill="none" stroke-linecap="round"></path><rect x="186" y="34" width="62" height="34" rx="17" fill="#FFB020"></rect><text x="217" y="57" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="800" fill="#4A2E00">v2.0</text><path d="M96 98l8 30h14l-6-30z" fill="#3E4FB0"></path></svg><b>Internal update</b><span>Release notes, launch memos, FAQs</span></button>
+</div>
+</section>
+
+<section class="sec">
+<span class="step"><b>2</b>CHECK THE SOURCE</span>
+<h2>Who is it for?</h2>
+<p class="sub">The studio reads the file, finds the facts that can be proven, and writes for the audience you choose.</p>
+<div class="srcbox">
+<div><p class="lab">Source files · add up to 3 of your own</p>
+<div class="files">
+<div class="frow main"><span class="file-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"></path><path d="M14 3v4h4"></path><path d="M9 13h6"></path><path d="M9 17h6"></path></svg></span><div><b>{{s.file}}</b><small>Main source · {{s.type}}</small></div><span class="ok-tag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>Read</span></div>
+<sc-for list="{{s.more}}" as="f" hint-placeholder-count="2"><div class="frow"><span class="file-ic alt"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"></path><path d="M14 3v4h4"></path><path d="M9 13h6"></path><path d="M9 17h6"></path></svg></span><div><b>{{f.file}}</b><small>Supporting example · {{f.type}}</small></div><span class="ok-tag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>Read</span></div></sc-for>
+<sc-for list="{{userFiles}}" as="u" hint-placeholder-count="0"><div class="frow"><span class="file-ic alt"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"></path><path d="M14 3v4h4"></path><path d="M9 13h6"></path><path d="M9 17h6"></path></svg></span><div><b>{{u.name}}</b><small>Your file · {{u.size}} · not analyzed in this demo</small></div><button type="button" class="rm" aria-label="Remove {{u.name}}" onClick="{{u.remove}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12"></path><path d="M18 6 6 18"></path></svg></button></div></sc-for>
+<sc-if value="{{canAdd}}" hint-placeholder-val="{{true}}"><label class="drop"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"></path><path d="m7 9 5-5 5 5"></path><path d="M5 20h14"></path></svg><span>Add another example file</span><input type="file" class="sr" multiple onChange="{{onFiles}}"></label></sc-if>
+</div>
+<p class="lab" style="margin-top: 18px">What the studio found in the main source</p><p class="excerpt">{{s.excerpt}}</p>
+</div>
+<div><p class="lab">Write for</p><div class="auds" role="group" aria-label="Audience"><sc-for list="{{auds}}" as="a" hint-placeholder-count="6"><button type="button" class="aud" aria-pressed="{{a.on}}" onClick="{{a.pick}}">{{a.name}}</button></sc-for></div>
+<p class="lab" style="margin-top: 20px">They are measured on</p><div class="auds"><sc-for list="{{kpis}}" as="k" hint-placeholder-count="3"><span class="kchip">{{k}}</span></sc-for></div>
+<div class="gen"><a class="btn primary" href="#results"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4"></path><path d="M12 17v4"></path><path d="M3 12h4"></path><path d="M17 12h4"></path><path d="m6 6 2.5 2.5"></path><path d="m15.5 15.5 2.5 2.5"></path><path d="m6 18 2.5-2.5"></path><path d="m15.5 8.5 2.5-2.5"></path></svg>Generate messages</a></div></div>
+</div>
+</section>
+
+<section class="sec" id="results">
+<span class="step"><b>3</b>READY TO USE</span>
+<h2>Key messages, ranked for the {{audName}}</h2>
+<p class="sub">The same three facts, put in the order that matters most to this role. Each message is tied to a fact from your files.</p>
+<div class="results">
+<div><p class="leadq"><small>LEAD WITH · {{audShort}}</small>{{lead}}</p>
+<div class="kms"><sc-for list="{{km}}" as="k" hint-placeholder-count="3"><div class="km"><span class="km-n {{k.cls}}">{{k.n}}</span><div><span class="fit {{k.fitCls}}">{{k.fit}} · {{k.tag}}</span><h3>{{k.t}}</h3><p>{{k.p}}</p></div></div></sc-for></div></div>
+<div class="side">
+<div class="panel"><h3><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1"></circle></svg>Why this order</h3><p class="why">The {{audShort}} is measured on <b>{{kpiText}}</b>, so the message that moves those numbers leads.</p></div>
+<div class="panel"><h3><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"></path><path d="M22 2 11 13"></path></svg>Send to</h3><div class="sendto"><button type="button" class="st" onClick="{{send.deck}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M12 16v4"></path><path d="M8 20h8"></path></svg>Sales deck</button><button type="button" class="st" onClick="{{send.email}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>Email</button><button type="button" class="st" onClick="{{send.crm}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18 14a6 6 0 0 1 3.5 6"></path></svg>CRM</button><button type="button" class="st" onClick="{{send.social}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"></path></svg>Social</button></div></div>
+</div></div>
+</section>
+
+<section class="sec">
+<span class="step"><b>4</b>MESSAGES BY ROLE</span>
+<h2>One source, a message for every role</h2>
+<p class="sub">How the studio sorts the same content for each audience. Pick a role to rank the key messages for it.</p>
+<div class="roles"><sc-for list="{{roles}}" as="r" hint-placeholder-count="6"><button type="button" class="role" aria-pressed="{{r.on}}" onClick="{{r.pick}}">
+<span class="role-h"><span class="role-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18 14a6 6 0 0 1 3.5 6"></path></svg></span><span><b>{{r.short}}</b><small>{{r.name}}</small></span></span>
+<span class="role-k">Measured on: {{r.kpis}}</span>
+<span class="role-l">"{{r.lead}}"</span>
+<span class="role-t">Top message: {{r.top}}</span>
+</button></sc-for></div>
+</section>
+
+<section class="sec">
+<span class="step"><b>5</b>OBJECTION HANDLING</span>
+<h2>What the {{audShort}} will push back on</h2>
+<p class="sub">The likely objections for this role, a short answer and the proof from your files that backs it up.</p>
+<div class="auds" role="group" aria-label="Role for objections" style="margin-bottom: 18px"><sc-for list="{{auds}}" as="a" hint-placeholder-count="6"><button type="button" class="aud" aria-pressed="{{a.on}}" onClick="{{a.pick}}">{{a.name}}</button></sc-for></div>
+<div class="objs"><sc-for list="{{objs}}" as="o" hint-placeholder-count="2"><div class="objc">
+<div class="o-they"><span class="o-k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"></path></svg>They say</span><p>"{{o.q}}"</p></div>
+<div class="o-you"><span class="o-k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>You say</span><p>{{o.a}}</p></div>
+<div class="o-proof"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span><b>Proof:</b> {{o.p}}</span></div>
+</div></sc-for></div>
+</section>
+
+<section class="sec">
+<span class="step"><b>6</b>EVIDENCE INFOGRAPHIC</span>
+<h2>Clinical evidence at a glance</h2>
+<p class="sub">Built from Product1_RCT_summary.pdf: a one-page visual reps can drop into a deck or leave behind after a call.</p>
+<div class="evidence">
+<div class="ev"><h3>Study design</h3>
+<div class="dstep"><span class="dnum">1</span><div><b>600 patients, 14 sites</b><p>Randomized 1:1 to Product 1 or usual care</p></div></div>
+<div class="dstep"><span class="dnum">2</span><div><b>12 months of follow-up</b><p>Product 1 alongside standard care</p></div></div>
+<div class="dstep"><span class="dnum">3</span><div><b>Primary endpoint</b><p>30-day readmissions</p></div></div>
+<div class="dstep"><span class="dnum">4</span><div><b>Secondary endpoints</b><p>Use at 6 months, safety</p></div></div></div>
+<div class="ev"><h3>30-day readmissions</h3>
+<div class="ibars"><div class="ibar"><b>21%</b><i style="height: 136px; background: #D9C8F0"></i></div><div class="ibar"><b>16%</b><i style="height: 104px; background: #5B2A86"></i></div></div>
+<div class="iblabels"><span>Usual care</span><span>Product 1</span></div>
+<span class="delta"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>24% relative reduction</span></div>
+<div class="ev"><h3>Use and safety</h3>
+<div class="donut"><svg viewBox="0 0 120 120" role="img" aria-label="88 percent of patients still using Product 1 at 6 months"><circle cx="60" cy="60" r="48" fill="none" stroke="#F3ECFA" stroke-width="16"></circle><circle cx="60" cy="60" r="48" fill="none" stroke="#FF7A59" stroke-width="16" stroke-dasharray="265.4 301.6" stroke-linecap="round" transform="rotate(-90 60 60)"></circle></svg>
+<div><span class="big">88%</span><p>still using Product 1 at 6 months</p></div></div>
+<div class="safe"><b>0</b><span>device-related serious adverse events in 12 months</span></div></div>
+</div>
+<div class="lead-with"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1"></circle></svg><span><b>Lead with:</b> "In a randomized trial of 600 patients, Product 1 cut 30-day readmissions from 21% to 16%." Then show that 88% were still using it at 6 months, so the result holds up in real use.</span></div>
+<p class="caption">Fictional trial data for a portfolio mockup. In the real tool these numbers come from the uploaded study and stay flagged until MLR approves them.</p>
+</section>
+
+<section class="sec">
+<span class="step"><b>7</b>BATTLECARD</span>
+<h2>The strategic battlecard</h2>
+<p class="sub">Built from your competitive notes: how each competitor plays, how we play, and the moves that win the deal.</p>
+<div class="comp-tabs" role="group" aria-label="Competitor"><sc-for list="{{comps}}" as="c" hint-placeholder-count="3"><button type="button" class="aud" aria-pressed="{{c.on}}" onClick="{{c.pick}}">vs {{c.name}}</button></sc-for></div>
+<div class="strat">
+<div class="sc them"><span class="sc-k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18 14a6 6 0 0 1 3.5 6"></path></svg>{{comp.name}}'s strategy</span><p>{{comp.strat}}</p></div>
+<div class="sc us"><span class="sc-k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1"></circle></svg>Our strategy</span><p>{{comp.ours}}</p></div>
+<div class="sc win"><span class="sc-k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"></path><path d="M16 5h3v2a3 3 0 0 1-3 3"></path><path d="M8 5H5v2a3 3 0 0 0 3 3"></path><path d="M12 13v4"></path><path d="M8 21h8"></path></svg>Why we win, and where they win</span><p>{{comp.why}}</p></div>
+</div>
+<div class="bc-grid">
+<div class="panel"><h3><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>Winning plays</h3><ol class="plays"><sc-for list="{{comp.plays}}" as="p" hint-placeholder-count="3"><li>{{p}}</li></sc-for></ol></div>
+<div class="panel"><h3><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"></path><path d="m9 12 2 2 4-4"></path></svg>On the call</h3>
+<div class="bc"><div class="us"><b>We win</b>{{comp.us}}</div><div class="them"><b>They win</b>{{comp.them}}</div></div>
+<div class="ask"><b>Ask:</b> "{{comp.trap}}"</div></div>
+</div>
+</section>
+<div class="toast" role="status" aria-live="polite">{{toast}}</div>
+<footer class="foot">Portfolio demo by Warisha Khan. Product 1, Competitor A, B and C, and all figures are fictional. Review every message with Medical, Legal and Regulatory before use.</footer>
+</div></div></template>
+<noscript><p style="padding:24px;font-family:sans-serif">Product Messaging Studio needs JavaScript to run.</p></noscript>
+<script>
+// Tiny runtime: renders the same {{holes}} / <sc-for> / <sc-if> / onX templates the mockup uses, with plain DOM.
+class DCLogic { constructor(props) { this.props = props || {}; this.state = {}; } setState(p) { Object.assign(this.state, typeof p === 'function' ? p(this.state) : p); APP.render(); } }
+const APP = (() => {
+  const HOLE = /\{\{\s*([^}]+?)\s*\}\}/g;
+  const look = (scope, path) => {
+    path = path.trim();
+    if (path === 'true') return true; if (path === 'false') return false;
+    if (/^-?\d+(\.\d+)?$/.test(path)) return +path;
+    return path.split('.').reduce((o, k) => (o == null ? undefined : o[k]), scope);
+  };
+  const interp = (str, scope) => str.replace(HOLE, (_, p) => { const v = look(scope, p); return v == null ? '' : String(v); });
+  const whole = str => { const m = /^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/.exec(str); return m ? m[1] : null; };
+  const EVT = { onClick: 'click', onChange: 'change', onInput: 'input', onKeyDown: 'keydown', onSubmit: 'submit' };
+  function build(node, scope, out) {
+    if (node.nodeType === 3) { out.appendChild(document.createTextNode(interp(node.nodeValue, scope))); return; }
+    if (node.nodeType !== 1) return;
+    const tag = node.localName;
+    if (tag === 'sc-for') {
+      const list = look(scope, whole(node.getAttribute('list')) || '') || [];
+      const as = node.getAttribute('as') || 'item';
+      list.forEach((item, i) => node.childNodes.forEach(c => build(c, { ...scope, [as]: item, $index: i }, out)));
+      return;
+    }
+    if (tag === 'sc-if') { if (look(scope, whole(node.getAttribute('value')) || '')) node.childNodes.forEach(c => build(c, scope, out)); return; }
+    const el = node.namespaceURI === 'http://www.w3.org/2000/svg' ? document.createElementNS(node.namespaceURI, tag) : document.createElement(tag);
+    let value;
+    for (const { name, value: raw } of [...node.attributes]) {
+      if (name.startsWith('hint-')) continue;
+      const evName = Object.keys(EVT).find(k => k.toLowerCase() === name.toLowerCase());
+      if (evName) { const fn = look(scope, whole(raw) || ''); if (typeof fn === 'function') el.addEventListener(EVT[evName], fn); continue; }
+      const v = whole(raw) ? look(scope, whole(raw)) : interp(raw, scope);
+      if (name === 'value' && (tag === 'select' || tag === 'input' || tag === 'textarea')) { value = v; continue; }
+      el.setAttribute(name, v == null ? '' : String(v));
+    }
+    node.childNodes.forEach(c => build(c, scope, el));
+    if (value !== undefined) el.value = value == null ? '' : value;
+    out.appendChild(el);
+  }
+  const pathOf = el => { if (!el || !root || !root.contains(el) || el === root) return null; const p = []; while (el !== root) { p.unshift([...el.parentNode.children].indexOf(el)); el = el.parentNode; } return p; };
+  let root, tpl, comp;
+  return {
+    mount(r, templateEl, Comp) { root = r; tpl = templateEl.content; comp = new Comp({}); this.render(); },
+    render() {
+      if (!comp) return;
+      const focus = pathOf(document.activeElement);
+      const frag = document.createDocumentFragment();
+      const vals = comp.renderVals();
+      tpl.childNodes.forEach(c => build(c, vals, frag));
+      root.replaceChildren(frag);
+      if (focus) { let el = root; for (const i of focus) { el = el && el.children[i]; } if (el && el.focus) el.focus({ preventScroll: true }); }
+      if (comp.afterRender) comp.afterRender(root);
+    }
+  };
+})();
+
+const SOURCES = {
+  trial: { id: 'trial', type: 'Clinical trial results', file: 'Product1_RCT_summary.pdf', title: 'Randomized multicenter study of Product 1',
+    excerpt: '600 patients at 14 sites were randomized 1:1 to Product 1 or usual care for 12 months. 30-day readmissions were 16% with Product 1 vs 21% with usual care. 88% of patients were still using Product 1 at 6 months. No device-related serious adverse events were reported.',
+    km: [{ t: 'Fewer readmissions, shown in a randomized trial', p: '30-day readmissions 16% vs 21% with usual care, a 24% relative reduction (n=600, 14 sites)' },
+         { t: 'Patients keep using it', p: '88% of patients were still using Product 1 at 6 months' },
+         { t: 'Safe to add to the care you already give', p: 'No device-related serious adverse events in 12 months' }],
+    more: [{ file: 'Trial_poster_ACC2026.pdf', type: 'Conference poster' }, { file: 'Investigator_quotes.docx', type: 'Investigator interviews' }],
+    fit: { clinical: [0, 1, 2], cmo: [0, 2, 1], exec: [0, 1, 2], it: [1, 2, 0], sales: [0, 1, 2], patient: [1, 2, 0] }, tags: ['Outcomes', 'Adoption', 'Safety'],
+    lead: { cmo: 'Randomized evidence your quality committee will accept: readmissions down from 21% to 16%.', clinical: 'In a randomized trial, Product 1 cut 30-day readmissions from 21% to 16%.', exec: 'Randomized evidence that Product 1 lowers readmissions, the cost you are measured on.', it: 'Proven at 14 sites with a 12-month randomized study, so the rollout path is already tested.', sales: 'Open with the trial: randomized, 600 patients, readmissions down from 21% to 16%.', patient: 'In a large study, people using Product 1 went back to the hospital less often.' } },
+  whitepaper: { id: 'whitepaper', type: 'White paper', file: 'Product1_economic_value.pdf', title: 'The economic value of Product 1',
+    excerpt: 'A budget model for a 500-patient program estimates $1,200 in avoided costs per patient per year. Nurse review time drops from 12 to 4 minutes per patient each week because alerts arrive ranked. Modeled payback is 3 months.',
+    km: [{ t: 'Lower total cost of care', p: 'Modeled $1,200 in avoided costs per patient per year' },
+         { t: 'Gives nurses time back', p: 'Review time drops from 12 to 4 minutes per patient each week' },
+         { t: 'Pays back in a quarter', p: 'Modeled payback in 3 months for a 500-patient program' }],
+    more: [{ file: 'Budget_model.xlsx', type: 'Value model' }, { file: 'Nurse_time_study.pdf', type: 'Time study' }],
+    fit: { clinical: [1, 0, 2], cmo: [1, 0, 2], exec: [0, 2, 1], it: [1, 0, 2], sales: [2, 0, 1], patient: [1, 0, 2] }, tags: ['Cost', 'Nurse time', 'Payback'],
+    lead: { cmo: 'Better outcomes without adding staff: nurses review each patient in 4 minutes, not 12.', clinical: 'Product 1 ranks what needs attention, cutting review time from 12 to 4 minutes per patient.', exec: 'A modeled $1,200 saved per patient per year, with payback in 3 months.', it: 'The savings come without new hardware to buy, ship or support.', sales: 'Lead with time and money: 8 minutes back per patient each week, payback in 3 months.', patient: 'Your care team spends less time on paperwork and more time with you.' } },
+  competitive: { id: 'competitive', type: 'Competitive intel', file: 'Q3_competitive_notes.docx', title: 'Q3 field notes on Competitor A, B and C',
+    excerpt: 'Competitor A ships a dedicated hardware kit to every patient. Competitor B has no EHR integration; staff re-key data. Competitor C prices per device, so costs rise as programs grow. Reps report losing early calls on "we already have a vendor".',
+    km: [{ t: 'No new hardware to ship', p: 'Works with devices patients already own, unlike kit-based Competitor A' },
+         { t: 'Built into the EHR your team uses', p: 'Data flows into the record, so no re-keying as with Competitor B' },
+         { t: 'Simple per-patient pricing', p: 'One price per enrolled patient, not per device as with Competitor C' }],
+    more: [{ file: 'Win_loss_interviews.docx', type: 'Win/loss notes' }, { file: 'Competitor_pricing.xlsx', type: 'Pricing sheet' }],
+    fit: { clinical: [1, 0, 2], cmo: [1, 0, 2], exec: [2, 0, 1], it: [1, 0, 2], sales: [0, 1, 2], patient: [0, 1, 2] }, tags: ['No hardware', 'EHR workflow', 'Pricing'],
+    lead: { cmo: 'Your clinicians stay in the EHR, so alerts reach the right nurse without another portal.', clinical: 'Everything your team needs is in the EHR, not another portal to log into.', exec: 'Scale the program without a device fleet or per-device fees.', it: 'Standards-based EHR integration, so data never gets re-keyed.', sales: 'When they say "we already have a vendor", ask who ships, tracks and recovers their kits.', patient: 'Use the devices you already have. Nothing new to set up.' } },
+  internal: { id: 'internal', type: 'Internal update', file: 'Product1_v2_release_notes.docx', title: 'Product 1 version 2.0 release notes',
+    excerpt: 'Version 2.0 adds one-click EHR integration, a Spanish-language patient app, and alert rules each program can tune. Available to all customers on March 1. Existing customers upgrade at no cost.',
+    km: [{ t: 'Live in your EHR in a click', p: 'New one-click EHR integration in version 2.0' },
+         { t: 'Reaches more of your patients', p: 'New Spanish-language patient app' },
+         { t: 'Alerts tuned to your program', p: 'Each program can now tune its own alert rules' }],
+    more: [{ file: 'Launch_FAQ.docx', type: 'Launch FAQ' }, { file: 'Customer_email_draft.docx', type: 'Draft email' }],
+    fit: { clinical: [2, 1, 0], cmo: [2, 1, 0], exec: [1, 0, 2], it: [0, 2, 1], sales: [0, 1, 2], patient: [1, 0, 2] }, tags: ['EHR', 'Reach', 'Control'],
+    lead: { cmo: 'Version 2.0 lets each program tune alert rules to its own clinical protocols.', clinical: 'Version 2.0 lets your team tune alert rules to your own protocols.', exec: 'Version 2.0 widens reach with a Spanish-language app, at no extra cost.', it: 'Version 2.0 adds one-click EHR integration, available March 1.', sales: "Call every customer before March 1: v2.0 is a free upgrade and a reason to expand.", patient: 'Product 1 is now available in Spanish.' } }
+};
+const AUD = {
+  clinical: { name: 'Clinicians (nurses, physicians)', short: 'Clinicians', kpis: ['Time to intervention', 'Nurse workload', 'Patient follow-up'], cta: 'See a 10-minute demo of the ranked patient list with your team.' },
+  cmo: { name: 'Chief Medical Officer', short: 'CMO', kpis: ['Readmissions', 'Quality measures', 'Clinical risk'], cta: 'Review the evidence with your team and pilot Product 1 in one service line.' },
+  exec: { name: 'CEO and CFO', short: 'CEO / CFO', kpis: ['Total cost of care', 'Payback period', 'Program growth'], cta: 'Run the value model on your own patient population.' },
+  it: { name: 'CTO and CIO', short: 'CTO / CIO', kpis: ['Time to integrate', 'Security review', 'Support tickets'], cta: 'Book a technical review with your integration and security leads.' },
+  sales: { name: 'Sales team (internal)', short: 'Sales team', kpis: ['Win rate', 'Sales cycle', 'Pipeline'], cta: 'Use this in your next three customer calls and log what lands.' },
+  patient: { name: 'Patients and caregivers', short: 'Patients', kpis: ['Ease of use', 'Trust', 'Daily use'], cta: 'Ask your care team if Product 1 is right for you.' }
+};
+const COMP = {
+  A: { name: 'Competitor A', strat: 'Win on hardware control: ship a complete cellular kit so any patient can start, and sell to RPM program managers on a proven reimbursement playbook.', ours: 'Win on scale and simplicity: no kits, devices patients already own, ranked alerts inside the EHR. Sell outcomes to clinical leaders and cost to finance.', why: 'Once a program passes a few hundred patients, kit logistics and cost become the bottleneck. We win where growth and nurse time matter more than device control. They win with patients who have no smartphone.', plays: ['Lead with total cost per enrolled patient, kits included', 'Bring a nurse champion to show a 4-minute patient review', 'Offer a 90-day side-by-side pilot in one clinic'], them: 'Cellular kits that work for patients without a smartphone, and a long track record.', us: 'No kits to buy, ship or recover. Patients use devices they already own, so programs start in days.', trap: 'What does it cost you to ship, track and recover a kit for every patient?' },
+  B: { name: 'Competitor B', strat: 'Win on price and speed: a low entry price and a simple app, sold directly to individual clinics.', ours: 'Win on workflow: data lands in the EHR and alerts reach the right nurse, so the program runs without extra staff.', why: 'A low price stops mattering once staff spend hours re-keying data. We win in health systems where the EHR is the center of work. They win in small clinics that want the cheapest start.', plays: ['Ask who re-keys readings today and how long it takes', 'Show the EHR view live in the first demo', 'Bring IT in early with the integration and security pack'], them: 'A low entry price and a simple patient app.', us: 'Data flows straight into the EHR, so staff never re-key readings and alerts reach the right nurse.', trap: 'Who on your team copies readings into the chart today, and how long does it take?' },
+  C: { name: 'Competitor C', strat: 'Win on breadth and brand: a large device catalog and per-device pricing, sold top-down to large systems.', ours: 'Win on predictability and evidence: one price per patient, a focused clinical workflow and randomized trial results.', why: 'Per-device pricing grows faster than the program does. We win when finance sees the 3-year cost and clinicians see the trial. They win when a buyer wants one vendor for every device type.', plays: ['Model the 3-year cost with 2 or 3 devices per patient', 'Lead with the randomized trial, not the device catalog', 'Bring the CFO into the second meeting'], them: 'A broad device catalog and strong brand recognition.', us: 'One price per enrolled patient, so costs stay predictable as the program grows.', trap: 'What happens to your budget when each patient needs two or three devices?' }
+};
+const LANDMINES = [['"FDA-approved"', '"FDA-cleared"'], ['"Prevents readmissions"', '"Reduced readmissions in a randomized trial"'], ['"Guaranteed savings"', '"Modeled savings for your population"'], ['"Best-in-class"', 'The specific result that proves it']];
+const HYPE = ['revolutionary', 'game-changing', 'best-in-class', 'cutting-edge', 'seamless', 'seamlessly', 'world-class', 'unparalleled', 'next-generation', 'synergy', 'leverage', 'holistic', 'robust', 'disruptive', 'innovative'];
+const CLAIMS = {
+  wellness: [['diagnose', 'Disease diagnosis claim'], ['treat', 'Treatment claim'], ['prevent', 'Prevention claim tied to disease'], ['medical-grade', 'Implies medical device performance'], ['fda-approved', 'Wellness products are not FDA approved'], ['readmission', 'Clinical outcome claim'], ['adverse event', 'Safety claim'], ['hospital', 'Clinical outcome claim']],
+  cleared: [['fda-approved', "Devices are 'cleared' or 'authorized', not 'approved'"], ['cure', 'Cure claim beyond typical clearance'], ['guarantee', 'Guarantees are not supportable'], ['prevents', 'Absolute prevention claim'], ['100%', 'Absolute claim'], ['eliminate', 'Absolute claim']],
+  investigational: [['proven', 'Efficacy not yet established'], ['fda-approved', 'Investigational products are not approved'], ['cleared', 'Investigational products are not cleared'], ['safe', 'Safety claim for investigational use'], ['readmission', 'Outcome claim before approval']]
+};
+const REG_LABEL = { cleared: 'FDA cleared', wellness: 'General wellness', investigational: 'Investigational' };
+function syllables(w) { w = w.toLowerCase().replace(/[^a-z]/g, ''); if (w.length <= 3) return 1; w = w.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '').replace(/^y/, ''); const m = w.match(/[aeiouy]{1,2}/g); return m ? m.length : 1; }
+function grade(text) {
+  const sents = Math.max(1, (text.match(/[.!?:]+(\s|$)/g) || []).length + (text.match(/\n/g) || []).length);
+  const words = text.split(/\s+/).filter(w => /[a-z]/i.test(w));
+  if (!words.length) return 0;
+  const syl = words.reduce((a, w) => a + syllables(w), 0);
+  return Math.max(0, 0.39 * (words.length / sents) + 11.8 * (syl / words.length) - 15.59);
+}
+function checkText(text, reg) {
+  const low = text.toLowerCase();
+  const hype = HYPE.filter(h => low.includes(h));
+  const claims = (CLAIMS[reg] || []).filter(([w]) => low.includes(w)).map(([w, why]) => ({ word: w, why }));
+  return { grade: grade(text), hype, claims, words: text.split(/\s+/).filter(Boolean).length };
+}
+function outputs(srcId, audId, compId) {
+  const s = SOURCES[srcId], a = AUD[audId], c = COMP[compId || 'A'];
+  const km = s.km.map((k, i) => (i + 1) + '. ' + k.t + '. ' + k.p + '.').join('\n');
+  return {
+    keyMessages: s.lead[audId] + '\n\n' + km,
+    battlecard: 'Lead with: ' + s.lead[audId] + '\n\nWhere we win vs ' + c.name + ': ' + c.us + '\nWhere they win: ' + c.them + '\nAsk: "' + c.trap + '"\n\nProof: ' + s.km[0].p + '.',
+    talk: 'Open: ' + s.lead[audId] + '\nThen: ' + s.km[1].t + '. ' + s.km[1].p + '.\nIf they push back: ' + s.km[2].t + '.\nClose: ' + a.cta,
+    email: 'Subject: ' + s.km[0].t + '\n\nHi [Name],\n\n' + s.lead[audId] + ' ' + s.km[1].p + '.\n\n' + a.cta + '\n\n[Your name]',
+    social: s.lead[audId] + ' ' + s.km[1].p + '. [Link]'
+  };
+}
+
+
+const FIT = ['Best fit', 'Strong', 'Supporting'];
+const OBJS = {
+  clinical: [['Will this add more alerts to our day?', 'No. Alerts arrive ranked, so nurses see the few patients who need action first.', 'Review time drops from 12 to 4 minutes per patient each week (white paper)'], ['Will patients actually keep using it?', 'They use devices they already own, so there is nothing new to learn.', '88% still using Product 1 at 6 months (clinical trial)']],
+  cmo: [['Is the evidence strong enough for our quality committee?', 'Yes. It comes from a randomized multicenter trial, not a single-site pilot.', '600 patients at 14 sites, readmissions down from 21% to 16% (clinical trial)'], ['Is it safe to add to current care?', 'It adds monitoring alongside the care your team already gives.', 'No device-related serious adverse events in 12 months (clinical trial)']],
+  exec: [['What is the return, and how fast?', 'The value model shows the program paying for itself within the first quarter.', '$1,200 in avoided costs per patient per year, 3-month payback (white paper)'], ['We already have a vendor.', 'Compare total cost per enrolled patient, including kits and staff time.', 'No kits to ship and one price per patient (competitive notes)']],
+  it: [['How much integration work will this take?', 'Version 2.0 connects to the EHR in one click, and there is no hardware to support.', 'One-click EHR integration (version 2.0 release notes)'], ['What about security and privacy?', 'Share the security pack up front and bring IT in at the first meeting.', '[Add proof: SOC 2 report or HIPAA documentation]']],
+  sales: [['The customer says the price is too high.', 'Move the talk to total cost: no kits to ship and less nurse time.', 'Modeled payback in 3 months (white paper)'], ['The customer is happy with Competitor A.', 'Ask what it costs them to ship, track and recover a kit for every patient.', 'Works with devices patients already own (competitive notes)']],
+  patient: [['Who sees my data?', 'You choose what you share and with whom, and you can stop at any time.', '[Confirm against your privacy policy]'], ['Do I need new devices?', 'No. Product 1 works with many devices people already have.', '[List supported devices]']]
+};
+class BaseComponent extends DCLogic {
+  constructor(props) { super(props); this.state = { src: 'trial', aud: 'cmo', comp: 'A' }; }
+  renderVals() {
+    const st = this.state, s = SOURCES[st.src], a = AUD[st.aud];
+    const lead = s.lead[st.aud];
+    const order = s.fit[st.aud];
+    const k = checkText([lead, ...s.km.map(x => x.t + '. ' + x.p + '.')].join(' '), 'cleared');
+    const t = {}, pick = {};
+    Object.keys(SOURCES).forEach(id => { t[id] = String(id === st.src); pick[id] = () => this.setState({ src: id }); });
+    const kp = a.kpis.map(x => x.toLowerCase());
+    return { t, pick, s, lead, audName: a.name.replace(' (nurses, physicians)', '').replace(/^CEO and CFO$/, 'CEO and CFO'), audShort: a.short, kpis: a.kpis,
+      kpiText: kp.slice(0, -1).join(', ') + ' and ' + kp[kp.length - 1],
+      auds: Object.keys(AUD).map(id => ({ name: AUD[id].short, on: String(id === st.aud), pick: () => this.setState({ aud: id }) })),
+      km: order.map((i, r) => ({ ...s.km[i], n: r + 1, cls: 'c' + r, fit: FIT[r] + (r === 0 ? ' for ' + a.short : ''), fitCls: 'f' + r, tag: s.tags[i] })),
+      roles: Object.keys(AUD).map(id => ({ short: AUD[id].short, name: AUD[id].name, kpis: AUD[id].kpis.join(', '), lead: s.lead[id], top: s.km[s.fit[id][0]].t, on: String(id === st.aud), pick: () => this.setState({ aud: id }) })),
+      comps: Object.keys(COMP).map(id => ({ name: COMP[id].name, on: String(id === st.comp), pick: () => this.setState({ comp: id }) })),
+      comp: COMP[st.comp],
+      objs: OBJS[st.aud].map(([q, a2, p]) => ({ q, a: a2, p })),
+      chk: { g: k.grade.toFixed(1), gTone: k.grade <= 10 ? 'ok' : 'bad', h: k.hype.length, hTone: k.hype.length ? 'bad' : 'ok', c: k.claims.length, cTone: k.claims.length ? 'bad' : 'ok' } };
+  }
+}
+
+const FORMAT = { deck: ['keyMessages', 'Sales deck'], email: ['email', 'Email'], crm: ['battlecard', 'CRM battlecard'], social: ['social', 'Social post'] };
+class Component extends BaseComponent {
+  constructor(props) { super(props); Object.assign(this.state, { files: [], toast: '' }); }
+  renderVals() {
+    const v = super.renderVals(), st = this.state;
+    const send = {};
+    Object.keys(FORMAT).forEach(k => { send[k] = () => {
+      const text = outputs(st.src, st.aud, st.comp)[FORMAT[k][0]];
+      const done = ok => { this.setState({ toast: ok ? FORMAT[k][1] + ' text copied to your clipboard' : 'Copy is blocked here. Select the messages and copy them instead.' }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toast: '' }), 2600); };
+      try { navigator.clipboard.writeText(text).then(() => done(true), () => done(false)); } catch (e) { done(false); }
+    }; });
+    const kb = n => n < 1024 ? n + ' B' : n < 1048576 ? Math.round(n / 1024) + ' KB' : (n / 1048576).toFixed(1) + ' MB';
+    return { ...v, send, toast: st.toast,
+      userFiles: st.files.map((f, i) => ({ name: f.name, size: kb(f.size), remove: () => this.setState({ files: st.files.filter((_, j) => j !== i) }) })),
+      canAdd: st.files.length < 3,
+      onFiles: e => { const add = [...e.target.files].slice(0, 3 - st.files.length).map(f => ({ name: f.name, size: f.size })); this.setState({ files: [...st.files, ...add] }); } };
+  }
+}
+
+APP.mount(document.getElementById('app'), document.getElementById('tpl'), Component);
+</script>
+</body>
+</html>
